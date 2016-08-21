@@ -44,6 +44,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5.2</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -69,7 +74,7 @@
 					<generatePackage>countries.wsdl</generatePackage>
 					<schemas>
 						<schema>
-							<url>http://localhost:8080/ws/countries.wsdl</url>
+							<url>http://localhost:8080/spring_soap_ws-0.0.1-SNAPSHOT/ws/countries.wsdl</url>
 						</schema>
 					</schemas>
 				</configuration>

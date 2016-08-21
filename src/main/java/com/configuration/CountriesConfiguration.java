@@ -18,7 +18,7 @@ public class CountriesConfiguration {
 	@Bean
 	public WebServiceTemplate webServiceTemplate() {
 		WebServiceTemplate webServiceTemplate = new WebServiceTemplate();
-		webServiceTemplate.setDefaultUri("http://localhost:8080/ws/");
+		webServiceTemplate.setDefaultUri("http://localhost:8080/spring_soap_ws-0.0.1-SNAPSHOT/ws/countries.wsdl");
 		webServiceTemplate.setMarshaller(marshaller());
 		webServiceTemplate.setUnmarshaller(marshaller());
 

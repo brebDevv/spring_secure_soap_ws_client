@@ -1,0 +1,22 @@
+1)Generate private key
+openssl genrsa -des3 -out server.key 4096
+
+2)Generate client sign request
+openssl req -new -key server.key -out server.csr
+
+3)Sign the csr with ca private key, and get the server certificate
+openssl x509 -req -days 365 -in server.csr -CA ca.crt -CAkey ca.key -set_serial 01 -out server.crt
+
+4)Examine components:
+openssl rsa -noout -text -in server.key
+openssl req -noout -text -in server.csr
+openssl rsa -noout -text -in ca.key
+openssl x509 -noout -text -in ca.crt
+***************************************************************************************************
+1)To convert a certificate, use openssl to convert the X.509 into PKCS12 format. You will be prompted to enter a password for the generated file which is required in the next step:
+
+openssl pkcs12 -export -in client-cert.pem -inkey client-key.pem >client.p12
+
+2)To import the converted certificate into a keystore, specifying the destination keystore name, as well as the source PKCS12 password used in the previous step:
+
+keytool -importkeystore -srckeystore client.p12 -destkeystore keystore.jks -srcstoretype pkcs12
